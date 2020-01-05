@@ -27,7 +27,12 @@ from tasks.live_daily_job import (
 )
 from tasks.main_daily_job import (
     JudgeCaseTask,
-    BiliMainTask
+    BiliMainTask,
+    DahuiyuanTask
+)
+from tasks.manga_daily_job import (
+    ShareComicTask,
+    MangaSignTask,
 )
 from tasks.utils import UtilsTask
 # 弹幕
@@ -91,6 +96,9 @@ bili_sched.add_daily_jobs(SendGiftTask, every_hours=2)
 bili_sched.add_daily_jobs(ExchangeSilverCoinTask, every_hours=6)
 bili_sched.add_daily_jobs(JudgeCaseTask, every_hours=0.75)
 bili_sched.add_daily_jobs(BiliMainTask, every_hours=4)
+bili_sched.add_daily_jobs(MangaSignTask, every_hours=6)
+bili_sched.add_daily_jobs(ShareComicTask, every_hours=6)
+bili_sched.add_daily_jobs(DahuiyuanTask, every_hours=6)
 
 loop.run_until_complete(notifier.exec_task(LoginTask))
 
